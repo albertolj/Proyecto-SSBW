@@ -1,0 +1,22 @@
+// prisma/schema.prisma
+
+generator client {
+	provider = "prisma-client-js"
+}
+
+// sqlite con el archivo database.sqlite
+datasource db {
+	provider = "sqlite"
+	url      = "file:database.sqlite"
+}
+
+model User {
+	id          Int        @id @default(autoincrement())
+	createdAt   DateTime   @default(now())
+	email       String     @unique
+	username    String     @unique
+	firstName   String?   
+	lastName    String?
+	admin       Boolean    @default(false)
+	image       String?    @unique
+}

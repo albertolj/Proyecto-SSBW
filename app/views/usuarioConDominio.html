@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
-{% set title = 'Inicio' %}
+{% set title = 'SSBW' %}
 
 {% block content %}
     <div class="min-h-screen flex flex-col">
         <header class="bg-blue-500 p-4 flex justify-center items-center"> <!-- Encabezado con el título -->
-            <h1 class="text-3xl text-white font-bold">Práctica de Sistemas software basados en Web</h1>
+            <h1 class="text-3xl text-white font-bold">Usuarios con dominio {{ dominio }}</h1>
         </header>
 
         <div class="flex-1 flex flex-col sm:flex-row">
             <nav class="order-first sm:w-48 bg-gray-800 p-4 text-white"> <!-- Barra lateral mejorada -->
                 <ul class="space-y-4"> <!-- Añadir espacio entre los elementos de la lista -->
                     <li>
-                      <a href="/" class="block p-2 hover:bg-gray-700 rounded">Página de inicio</a>
+                        <a href="/" class="block p-2 hover:bg-gray-700 rounded">Página de inicio</a>
                     </li>
                     <li>
                         <a href="/usuarios/admin" class="block p-2 hover:bg-gray-700 rounded">Usuarios Admin</a>
@@ -31,12 +31,24 @@
             </nav>
 
             <main class="flex-1 bg-indigo-100 p-4">
-                <h2 class="text-2xl font-bold mb-4">Bienvenido a la página de inicio</h2>
-                <p class="text-lg text-gray-600"></p>
-                <!-- Puedes agregar más contenido aquí -->
+                <div class="w-full sm:w-2/3 lg:w-1/2 bg-white shadow-md rounded-lg overflow-hidden">
+                    <ul class="divide-y divide-gray-200">
+                        {% for user in users %}
+                            <li class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <img src="{{ user.image }}" alt="{{ user.firstName }} {{ user.lastName }}" class="h-10 w-10 rounded-full">
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">{{ user.firstName }} {{ user.lastName }}</div>
+                                        <div class="text-sm text-gray-500">{{ user.email }}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </main>
         </div>
-
-        
     </div>
 {% endblock %}

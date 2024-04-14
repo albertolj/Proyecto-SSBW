@@ -6,10 +6,20 @@
     <title>{{ title }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="#">
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     {% block content %}{% endblock %}
+    <footer class="bg-gray-200 p-4">
+      <div class="text-center text-gray-600">
+          &copy; {{ currentYear }} Universidad De Granada | Todos los derechos reservados
+      </div>
+      <div class="mt-2 text-sm text-center">
+          ¡Explora más sobre nuestra universidad en <a href="https://www.ugr.es/" class="text-blue-600 hover:underline">https://www.ugr.es/</a>!
+      </div>
+    </footer>
+  
     <script src="" async defer></script>
   </body>
 </html>
