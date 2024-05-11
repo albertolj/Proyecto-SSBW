@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% set title = 'Formulario de Facturación' %}
+
+{% block content %}
+    <div class="min-h-screen flex flex-col">
+        <header class="bg-blue-500 p-4 flex justify-center items-center"> <!-- Encabezado con el título -->
+            <h1 class="text-3xl text-white font-bold">{{ title }}</h1>
+        </header>
+
+        <div class="flex-1 flex flex-col sm:flex-row">
+            <nav class="order-first sm:w-48 bg-gray-800 p-4 text-white"> <!-- Barra lateral mejorada -->
+                <ul class="space-y-4"> <!-- Añadir espacio entre los elementos de la lista -->
+                    <li>
+                        <a href="/" class="block p-2 hover:bg-gray-700 rounded">Página de inicio</a>
+                    </li>
+                    <li>
+                        <a href="/usuarios/admin" class="block p-2 hover:bg-gray-700 rounded">Usuarios Admin</a>
+                    </li>
+                    <li>
+                        <a href="/usuarios/con-email/de/com" class="block p-2 hover:bg-gray-700 rounded">Usuarios con email .com</a>
+                    </li>
+                    <li>
+                        <a href="/usuarios/con-email/de/jp" class="block p-2 hover:bg-gray-700 rounded">Usuarios con email .jp</a>
+                    </li>
+                    <li>
+                        <a href="/workcation" class="block p-2 hover:bg-gray-700 rounded">Workcation</a>
+                    </li>
+                    <li>
+                        <a href="/facturacion" class="block p-2 hover:bg-gray-700 rounded">Facturacion</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main class="flex-1 bg-indigo-100 p-4">
+                <div class="w-full sm:w-2/3 lg:w-1/2 bg-white shadow-md rounded-lg overflow-hidden mx-auto">
+                    <form action="/facturacion" method="post" class="p-6">
+                        <div class="mb-4">
+                            <label for="client" class="block text-sm font-medium text-gray-700">Cliente</label>
+                            <input type="text" id="client" name="client" required class="mt-1 p-2 w-full border-gray-300 rounded-md">
+                        </div>
+                        <div class="mb-4">
+                            <label for="date" class="block text-sm font-medium text-gray-700">Fecha</label>
+                            <input type="datetime-local" id="date" name="date" required class="mt-1 p-2 w-full border-gray-300 rounded-md">
+                        </div>
+                        <div class="mb-4">
+                            <label for="concept" class="block text-sm font-medium text-gray-700">Concepto</label>
+                            <input type="text" id="concept" name="concept" required class="mt-1 p-2 w-full border-gray-300 rounded-md">
+                        </div>
+                        <div class="mb-4">
+                            <label for="quantity" class="block text-sm font-medium text-gray-700">Cantidad</label>
+                            <input type="number" id="quantity" name="quantity" required class="mt-1 p-2 w-full border-gray-300 rounded-md">
+                        </div>
+                        <div class="mb-4">
+                            <label for="price" class="block text-sm font-medium text-gray-700">Precio</label>
+                            <input type="number" step="0.01" id="price" name="price" required class="mt-1 p-2 w-full border-gray-300 rounded-md">
+                        </div>
+                        <div>
+                            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}

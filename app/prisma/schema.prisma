@@ -19,4 +19,15 @@ model User {
 	lastName    String?
 	admin       Boolean    @default(false)
 	image       String?    @unique
+	password    String?
+}
+
+model Factura {
+	id          Int        @id @default(autoincrement())
+	client      String
+	date		DateTime
+	concept     String
+	cuantity    Float
+	price		Float
+	total       Float
 }
