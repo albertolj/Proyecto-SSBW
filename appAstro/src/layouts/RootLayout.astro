@@ -1,0 +1,25 @@
+---
+import { ThemeModeScript } from "flowbite-react";
+import MyNavBar from "../components/MyNavBar";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tarea 9</title>
+    <ThemeModeScript />
+  </head>
+  <body>
+    <!-- para que se carge el código JS del componente -->
+    <MyNavBar client:load />
+    <main
+      class="flex min-h-screen items-center justify-center gap-2 dark:bg-gray-800"
+    >
+      <br />
+      <slot />
+    </main>
+  </body>
+</html>

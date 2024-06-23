@@ -1,0 +1,14 @@
+---
+import SSR from "../components/SSR.astro";
+import RootLayout from "../layouts/RootLayout.astro";
+
+// https://docs.astro.build/en/guides/data-fetching/
+const dog = await fetch("https://dog.ceo/api/breeds/image/random").then((r) =>
+  r.json()
+);
+const img = dog.message;
+---
+
+<RootLayout>
+  <SSR dog={img} />
+</RootLayout>

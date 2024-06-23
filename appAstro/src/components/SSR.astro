@@ -1,0 +1,16 @@
+---
+const { dog } = Astro.props;
+console.log(dog);
+---
+
+<div>
+  <h1>Server Side Rendering</h1>
+  <img src={dog} />
+
+  <button>
+    <a href="/ssr">
+      ¡Otro!
+      <span role="img" aria-label="corazón"> ❤️ </span>
+    </a>
+  </button>
+</div>
