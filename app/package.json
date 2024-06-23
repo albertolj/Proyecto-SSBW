@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/albertolj/Proyecto-SSBW#readme",
   "dependencies": {
+    "@fastify/static": "^7.0.4",
     "@prisma/client": "^5.14.0",
     "body-parser": "^1.20.2",
     "chokidar": "^3.6.0",
